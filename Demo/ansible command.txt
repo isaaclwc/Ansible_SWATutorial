@@ -1,0 +1,42 @@
+## in the case where there are multiple target hosts
+- any_errors_fatal: true    ## this directive stops all tasks on all target host completely and exits
+
+
+- mail:
+    to: (recipient email)
+    subject: (subject)
+    body: (content)
+ignore_errors: yes  ## ignore errors from the task and continue with the rest of the playbook
+
+- command: cat /var/logs/server.log
+  register: command_output
+  failed_when: "'ERROR' in command_output.stdout"   ## to stop or fail the playbook when there are ERROR entries in the log file
+
+## jinja2 templating
+{{}} - curly brackets to enclose the variable (e.g. The name is {{Bond}})
+debug module - to display the variables specified in the jinja2 templating
+{{ my_name | upper }} - upper case, filters used (e.g. BOND)
+{{ my_name | lower }} - lower case, filters used (e.g. bond)
+{{ my_name | title }} - title case, filters used (e.g. Bond)
+{{ my_name | replace ("Bond", "Bourne") }} - replaces the string specified in the enclosed variable
+{{ firts_name | default("[first_name]") }}{{my_name}} - specified as first name and will display first name followed the defined name
+
+## jinja2 templating filters
+min - find the minimum from the array
+max - find the maximum from the array
+unique - find the unique from the array
+union - combine the variables from 2 arrays
+intersect - find the common variables from 2 arrays
+random - find a random variables from the specified arrays
+join - joins the variables specified in an array
+
+
+## vault
+to store credential in a encrypted format
+ansible-vault encrypt inventory.txt
+ansible-playbook playbook.yml -i inventory.txt -ask-vault-pass
+ansible-playbook playbook.yml -i inventory.txt -cault-password-file ~./vault_pass.txt
+ansible-playbook playbook.yml -i inventory.txt -cault-password-file ~./vault_pass.playbook
+ansible-vault -view inventory.txt
+ansible-vault create inventory.txt
+

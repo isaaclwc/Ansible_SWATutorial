@@ -1,0 +1,21 @@
+-
+  name: Deploy
+  hosts: '{{ target host ip }}'
+  tasks:
+    - name: monitor web app
+      command: /opt/monitor_web.py
+      async: 360
+      poll: 0   ## setting poll to 0 tells ansible not to wait and go to the next task
+      register: webapp_result   ## registering the result to a variable before ending the task
+
+    - name: monitor database
+      command: /opt/monitor_database.py
+      async: 360
+      poll: 0
+      register: database_result
+
+    - name: check status of tasks
+      async_status: jid={{ webapp_result.ansible_job_id }}  ## async_status obtains status of async tasks based on he job id and registerred results
+      register: job _result
+      until: job_result.finished
+      retries: 30
