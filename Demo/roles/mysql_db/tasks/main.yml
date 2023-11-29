@@ -31,7 +31,7 @@
 
       - name: Install MySQL Python
         pip:
-          name: mysql-python
+          name: MySQL-python
           state: present
 
       # - name: Install MySQL database
