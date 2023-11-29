@@ -23,7 +23,6 @@
           state: present
         with_items:
           - mysql-server
-          - mysql-client
 
       # - name: Install MySQL database
       #   apt:
