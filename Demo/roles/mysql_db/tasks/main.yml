@@ -1,13 +1,32 @@
 ---
 # tasks file for mysql_db
 
+      - name: Get MySQL repo
+        shell: wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+
+      - name: Install MySQL repo
+        shell: sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+      - name: Get latest update
+        yum:
+          name: '*'
+          state: latest
+
       - name: Install MySQL database
-        apt:
+        yum:
           name: "{{ item }}"
-          state:  present
+          state: present
         with_items:
           - mysql-server
           - mysql-client
+
+      # - name: Install MySQL database
+      #   apt:
+      #     name: "{{ item }}"
+      #     state:  present
+      #   with_items:
+      #     - mysql-server
+      #     - mysql-client
 
       - name: Start Mysql Service
         service:
