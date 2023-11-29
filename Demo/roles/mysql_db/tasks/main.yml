@@ -27,6 +27,7 @@
           state: present
         with_items:
           - mysql-server
+          - mysql-python
 
       # - name: Install MySQL database
       #   apt:
