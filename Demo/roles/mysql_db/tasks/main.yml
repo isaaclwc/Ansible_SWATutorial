@@ -28,6 +28,7 @@
         with_items:
           - mysql-server
           - mysql-python
+        ignore_errors: yes
 
       # - name: Install MySQL database
       #   apt:
