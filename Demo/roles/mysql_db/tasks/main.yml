@@ -1,6 +1,11 @@
 ---
 # tasks file for mysql_db
 
+      - name: Install wget
+        yum:
+          name: wget
+          state: present
+
       - name: Get MySQL repo
         shell: wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
 
