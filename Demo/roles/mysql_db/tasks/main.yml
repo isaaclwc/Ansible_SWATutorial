@@ -27,12 +27,8 @@
           state: present
         with_items:
           - mysql-server
+          - MySQL-python
         ignore_errors: yes
-
-      - name: Install MySQL Python
-        pip:
-          name: MySQL-python
-          state: present
 
       # - name: Install MySQL database
       #   apt:
