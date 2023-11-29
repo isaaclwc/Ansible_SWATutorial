@@ -29,6 +29,11 @@
           - mysql-server
         ignore_errors: yes
 
+      - name: Install MySQL Python
+        pip:
+          name: mysql-python
+          state: present
+
       # - name: Install MySQL database
       #   apt:
       #     name: "{{ item }}"
