@@ -10,7 +10,11 @@
         shell: wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
 
       - name: Install MySQL repo
-        shell: sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+        yum:
+          name: mysql-community-release-el7-5.noarch.rpm
+          state: present
+        become: yes
+        # shell: sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
 
       - name: Get latest update
         yum:
