@@ -45,7 +45,7 @@
           enabled: yes
 
       - name: Create Application Database
-        mysql_db: 
+          mysql_db: 
           name: "{{ db_name }}"
           state: present
 

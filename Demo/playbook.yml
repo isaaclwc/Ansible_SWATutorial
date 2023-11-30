@@ -4,4 +4,4 @@
     roles:
       - python
       - mysql_db
-      # - flask_web
+      - flask_web
