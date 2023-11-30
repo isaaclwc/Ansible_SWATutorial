@@ -1,6 +1,6 @@
 ---
   - name: Deploy a web application
-    hosts: db_web_servers
+    hosts: 192.168.0.151
     roles:
       - python
       - mysql_db
