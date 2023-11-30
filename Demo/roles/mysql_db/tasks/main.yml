@@ -30,14 +30,6 @@
           - MySQL-python
         ignore_errors: yes
 
-      # - name: Install MySQL database
-      #   apt:
-      #     name: "{{ item }}"
-      #     state:  present
-      #   with_items:
-      #     - mysql-server
-      #     - mysql-client
-
       - name: Start Mysql Service
         service:
           name: mysql

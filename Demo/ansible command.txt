@@ -40,3 +40,10 @@ ansible-playbook playbook.yml -i inventory.txt -cault-password-file ~./vault_pas
 ansible-vault -view inventory.txt
 ansible-vault create inventory.txt
 
+      # - name: Install MySQL database
+      #   apt:
+      #     name: "{{ item }}"
+      #     state:  present
+      #   with_items:
+      #     - mysql-server
+      #     - mysql-client
