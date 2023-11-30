@@ -36,18 +36,18 @@
           state: started
           enabled: yes
 
-      - name: Create Application Database
-        mysql_db: 
-          name: "{{ db_name }}"
-          state: present
-        ignore_errors: yes
+      # - name: Create Application Database
+      #   mysql_db: 
+      #     name: "{{ db_name }}"
+      #     state: present
+      #   ignore_errors: yes
 
 
-      - name: Create Application DB User
-        mysql_user: 
-          name: "{{ db_user }}" 
-          password: "{{ db_user_password }}" 
-          priv: '*.*:ALL' 
-          host: '%' 
-          state: 'present'
-        ignore_errors: yes
+      # - name: Create Application DB User
+      #   mysql_user: 
+      #     name: "{{ db_user }}" 
+      #     password: "{{ db_user_password }}" 
+      #     priv: '*.*:ALL' 
+      #     host: '%' 
+      #     state: 'present'
+      #   ignore_errors: yes
